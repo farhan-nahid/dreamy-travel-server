@@ -44,6 +44,24 @@ async function run() {
       res.send(place);
     });
 
+    // GET all orders
+
+    app.get('/all-orders', async (req, res) => {
+      const cursor = orderCollection.find({});
+      const orders = await cursor.toArray();
+      res.send(orders);
+    });
+
+    // GET email wise orders
+
+    app.get('/order/:email', async (req, res) => {
+      const email = req.params.email;
+      const cursor = await orderCollection.find({});
+      const orders = await cursor.toArray();
+      const filteredOrders = orders.filter((order) => order.email === email);
+      res.send(filteredOrders);
+    });
+
     // POST a single product
 
     app.post('/add-place', async (req, res) => {
