@@ -22,6 +22,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
+    await client.connect();
     const database = client.db(`${process.env.DB_NAME}`);
     const topPlaceCollection = database.collection('all_places');
     const orderCollection = database.collection('orders');
@@ -41,6 +42,22 @@ async function run() {
       const query = { _id: ObjectId(id) };
       const place = await topPlaceCollection.findOne(query);
       res.send(place);
+    });
+
+    // POST a single product
+
+    app.post('/add-place', async (req, res) => {
+      const place = req.body;
+      const result = await topPlaceCollection.insertOne(place);
+      res.json(result);
+    });
+
+    // POST a order
+
+    app.post('/order', async (req, res) => {
+      const order = req.body;
+      const result = await orderCollection.insertOne(order);
+      res.json(result);
     });
 
     // GET all orders
