@@ -78,6 +78,21 @@ async function run() {
       res.json(result);
     });
 
+    // PUT order status
+
+    app.put('/order/:id', async (req, res) => {
+      const id = req.params.id;
+      const status = req.body.status;
+      const filter = { _id: ObjectId(id) };
+      const updatingStatus = {
+        $set: {
+          status: status,
+        },
+      };
+      const result = orderCollection.updateOne(filter, updatingStatus);
+      res.json(result);
+    });
+
     // DELETE a single order by ID
 
     app.delete('/order/:id', async (req, res) => {
