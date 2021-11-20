@@ -78,14 +78,6 @@ async function run() {
       res.json(result);
     });
 
-    // GET all orders
-
-    app.get('all-orders', async (req, res) => {
-      const cursor = orderCollection.find({});
-      const orders = await cursor.toArray();
-      res.send(orders);
-    });
-
     // DELETE a single order by ID
 
     app.delete('/order/:id', async (req, res) => {
