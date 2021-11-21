@@ -1,4 +1,4 @@
-### [Dreamy Travel](https://dreamy-travel.firebaseapp.com/)
+### [Dreamy Travel](https://dreamy-travel.web.app/)
 
 ### `Some Description`
 
@@ -10,6 +10,7 @@
 - In `manage-orders` route we can see all orders
 - Only Authenticate user can order, add or see all orders.
 - For login you can use `email-password`, `gmail`, `gitHub`.
+- Dynamic Title Name
 
 ---
 
@@ -19,13 +20,37 @@ https://dreamy-travel.herokuapp.com/
 
 ---
 
+### `All Place`
+
+```
+https://dreamy-travel.herokuapp.com/top-places
+```
+
+### `Single Place`
+
+```
+https://dreamy-travel.herokuapp.com/place/${id}
+```
+
+### `All Orders`
+
+```
+https://dreamy-travel.herokuapp.com/all-orders
+```
+
+### `All Orders by email`
+
+```
+https://dreamy-travel.herokuapp.com/order/${email}
+```
+
 ### `Technology`
 
 - [x] ReactJs
 - [x] JSX
 - [x] CSS3
-- [x] React Router Dom(5.3.0)
-- [x] React Hook Form(7.20.0)
+- [x] React Router Dom (5.3.0)
+- [x] React Hook Form (7.20.0)
 - [x] Axios
 - [x] Hooks (useState, useEffect, useHistory, useLocation, useRef)
 - [x] Custom Hooks (useAuth, useFirebase)
